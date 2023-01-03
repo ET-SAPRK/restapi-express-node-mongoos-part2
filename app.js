@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 app.use(bodyParser.json())// the body must be parse to json
 
@@ -11,6 +12,7 @@ app.use(bodyParser.json())// the body must be parse to json
 const postsRoutes = require('./routes/post')
 
 //middleware run in each routes
+app.use(cors())
 app.use('/posts', postsRoutes);
 
 
